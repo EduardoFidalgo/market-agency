@@ -7,17 +7,21 @@ const HeroSection = () => {
         <Box
             sx={{
                 position: "relative",
-                height: "73vh", // Ajuste de altura para mobile
+                height: "73vh",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center", // Centralizar o conteúdo no mobile
+                justifyContent: "center",
                 textAlign: "center",
                 backgroundImage: `url(${heroImage})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundAttachment: "fixed",
+                backgroundAttachment: "fixed", // Padrão
                 color: "white",
-                px: { xs: 3, md: 20 }, // Aumentando o padding para mobile
+                px: { xs: 3, md: 20 },
+
+                "@supports (-webkit-touch-callout: none)": {
+                    backgroundAttachment: "scroll", // No iPhone, remove fixed
+                },
             }}
         >
             {/* Overlay para escurecer a imagem */}
